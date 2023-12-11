@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="user"-->
-<!--            type="com.example.retrofitrecyclerapiex.model.Movie" />-->
-<!--    </data>-->
+    <data>
+        <variable
+            name="user"
+            type="com.example.retrofitrecyclerapiex.model.Movie" />
+    </data>
 
     <LinearLayout
     android:layout_width="match_parent"
@@ -25,6 +25,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:imageUrl="@{user.loadImage()}"
                 android:id="@+id/pp"/>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -45,8 +46,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/og"
         android:layout_weight="0.3"
-        android:textSize="20dp"/>
-<!--        android:text="@{user.originalTitle}"-->
+        android:textSize="20dp"
+        android:text="@{user.originalTitle}"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -65,8 +66,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/bd"
             android:layout_weight="0.3"
-            android:textSize="32dp"/>
-<!--            android:text="@{user.backdropPath}"/>-->
+            android:textSize="32dp"
+            android:text="@{user.backdropPath}"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,9 +86,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/ol"
             android:layout_weight="0.3"
-            android:textSize="32dp"/>
+            android:textSize="32dp"
 
-<!--        android:text="@{user.backdropPath}"/>-->
+        android:text="@{user.backdropPath}"/>
         </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -106,8 +107,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/ov"
             android:layout_weight="0.3"
-            android:textSize="25dp"/>
-<!--        android:text="@{user.backdropPath}"/>-->
+            android:textSize="25dp"
+        android:text="@{user.backdropPath}"/>
     </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -125,8 +126,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/id1"
             android:layout_weight="0.3"
-            android:textSize="32dp"/>
-<!--            android:text="@{user.backdropPath}"/>-->
+            android:textSize="32dp"
+            android:text="@{user.backdropPath}"/>
             </LinearLayout>
 
         </LinearLayout>

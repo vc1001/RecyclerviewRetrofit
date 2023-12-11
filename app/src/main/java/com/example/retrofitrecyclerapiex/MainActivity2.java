@@ -3,6 +3,7 @@ package com.example.retrofitrecyclerapiex;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -13,51 +14,40 @@ import com.bumptech.glide.Glide;
 import com.example.retrofitrecyclerapiex.databinding.ActivityMain2Binding;
 import com.example.retrofitrecyclerapiex.model.Movie;
 import com.example.retrofitrecyclerapiex.view.MovieAdapter;
+import com.example.retrofitrecyclerapiex.viewmodel.MovieViewModel;
 
 import java.util.ArrayList;
 
 public class MainActivity2 extends AppCompatActivity {
 
-//    RecyclerView recyclerView;
-//    ArrayList<Movie> movielist;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-  //      ActivityMain2Binding binding=DataBindingUtil.
-              setContentView(R.layout.activity_main2);
+       ActivityMain2Binding binding=DataBindingUtil.setContentView(this,R.layout.activity_main2);
+  //   MovieViewModel ViewModel = new ViewModelProvider(this).get(MovieViewModel.class);
+
         String original = getIntent().getStringExtra("originalTitle");
-      int id= getIntent().getIntExtra("id",0);
+       int id= getIntent().getIntExtra("id",0);
         String backdrop = getIntent().getStringExtra("backdropPath");
         String originalLanguage=getIntent().getStringExtra("originalLanguage");
-         String posterPath= getIntent().getStringExtra("posterPath");
-
-       TextView textView= findViewById(R.id.og);
-       TextView backdroptxt=findViewById(R.id.bd);
-       TextView ol=findViewById(R.id.ol);
-       TextView ov= findViewById(R.id.ov);
-      TextView id1=findViewById(R.id.id1);
-      ImageView imageView=findViewById(R.id.pp);
+        String overview= getIntent().getStringExtra("overview");
+       String posterPath= getIntent().getStringExtra("posterPath");
 
 
+        Movie movie = new Movie();
+       movie.setOriginalTitle(original);
+       movie.setBackdropPath(backdrop);
+       movie.setId(id);
+       movie.setOriginalLanguage(originalLanguage);
+       movie.setOverview(overview);
 
-//        Movie movie = new Movie(original,id,backdrop,originalLanguage,overview,posterPath);
-//
-//        binding.setUser(movie);
-//
-//        binding.setLifecycleOwner(this);
+        binding.setUser(movie);
 
-
-
-        textView.setText(original);
-        backdroptxt.setText(backdrop);
-        ol.setText(originalLanguage);
-        ov.setText(overview);
-        id1.setText(String.valueOf(id));
+ //       binding.setLifecycleOwner(this);
         String imgPath = "https://image.tmdb.org/t/p/w500/" + posterPath;
-
-        Glide.with(imageView.getContext()).load(imgPath).into(imageView);
+        Glide.with(this).load(imgPath).into(binding.pp);
 
 
 

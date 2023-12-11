@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerviewInter
 
     @Override
     public void onItemClick(int position) {
+
         Intent intent=new Intent(MainActivity.this, MainActivity2.class);
         intent.putExtra("originalTitle",movieArrayList.get(position).getOriginalTitle());
         intent.putExtra("backdropPath",movieArrayList.get(position).getBackdropPath());
